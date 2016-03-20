@@ -1,0 +1,9 @@
+---
+applications:
+- name: mait-services
+  memory: 512M
+  host: mait-services
+  domain: apps.eu01.cf.canopy-cloud.com
+  buildpack: https://github.com/cloudfoundry-community/tomee-buildpack
+  services:
+  - creative-mongo

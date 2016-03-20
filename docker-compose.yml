@@ -1,0 +1,6 @@
+  web:
+    image: test01
+    links:
+      - services
+  services:
+    image: test01

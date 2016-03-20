@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MAIT Services</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+<h1>Hello World!</h1>
+<input id="hostname" type=text/>
+<button id="btnSubmit" onclick="submit();">Click Me!</button>
+<div id="result"/>
+</body>
+<script>
+	function submit() {
+		$.get("/rest/cfservices")
+		.done( function ( data, status, req) {
+			alert("success!");
+			$("#result").text(JSON.stringify(data));
+		})
+		.fail( function ( req, status, error) {
+			alert("Error: "+error+" \nStatus: "+status);
+		});
+		/*
+		var hostname = $("#hostname").val();
+		//var xhr = $.get("http://localhost:8080/test01/rest/hello/foo")
+		var xhr = $.ajax({
+			url:"http://"+hostname+":8080/rest/events/123",
+			method: "GET"
+		})
+		.done( function ( data, status, req) {
+			alert("success!");
+			$("#result").text(JSON.stringify(data));
+		})
+		.fail( function ( req, status, error) {
+			alert("Error: "+error+" \nStatus: "+status);
+		});
+		*/
+		/*
+		$.get("/rest/hello/foo")
+			.done( function ( data, status, req) {
+				alert("success!");
+				$("#result").text(JSON.stringify(data));
+			})
+			.fail( function ( req, status, error) {
+				alert("Error: "+error+" \nStatus: "+status);
+			});
+		*/
+	}
+</script>
+</html>
